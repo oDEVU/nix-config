@@ -1,5 +1,5 @@
 {
-  description = "Complete PC NixOS Configuration";
+  description = "Devu's NixOS Configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";

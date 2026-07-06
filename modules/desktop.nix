@@ -56,6 +56,10 @@
       hl.monitor({ output = "HDMI-A-1", mode = "1920x1080@75", position = "1080x450", scale = 1 })
       hl.monitor({ output = "DP-3", mode = "1920x1080@60", position = "0x0", scale = 1, transform = 1 })
 
+      hl.on("hyprland.start", function()
+        hl.exec_cmd("''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1")
+      end)
+
       hl.bind("SUPER + T", hl.dsp.window.float({ action = "toggle" }))
       hl.bind("SUPER + SHIFT + left", hl.dsp.focus({ direction = "l" }))
       hl.bind("SUPER + SHIFT + right", hl.dsp.focus({ direction = "r" }))
