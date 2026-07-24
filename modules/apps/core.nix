@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "pnpm-10.29.2" ];
@@ -28,9 +27,7 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-    ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
 
   security.rtkit.enable = true;
@@ -42,16 +39,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # Core
-    kitty git wget htop curl zip p7zip pciutils usbutils killall fastfetch brave polkit_gnome
-
-    # Dev
-    ninja cmake clang android-tools gitkraken
-
-    # Utils
-    gnome-disk-utility distrobox kdePackages.ark kdePackages.gwenview kdePackages.dolphin kdePackages.kio-extras
-
-    # GUI Apps
-    wl-clipboard heroic lact discord blender obs-studio zed-editor cosmic-settings cosmic-settings-daemon nwg-look
+    kitty git wget htop curl zip p7zip pciutils usbutils killall fastfetch polkit_gnome brave
   ];
 }

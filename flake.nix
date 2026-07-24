@@ -34,13 +34,12 @@
         ];
       };
 
-      # TODO: Laptop conf
-      # nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-      #   system = "x86_64-linux";
-      #   specialArgs = { inherit inputs vars; };
-      #   modules = [
-      #     ./hosts/laptop/default.nix
-      #   ];
-      # };
+      nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs vars; };
+        modules = [
+          ./hosts/laptop/default.nix
+        ];
+      };
     };
 }
