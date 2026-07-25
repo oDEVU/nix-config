@@ -14,6 +14,7 @@
     "amdgpu.ppfeaturemask=0xffffffff"
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -34,6 +35,8 @@
     enable32Bit = true;
     extraPackages = with pkgs; [ libvdpau-va-gl libva-vdpau-driver ];
   };
+  chaotic.mesa-git.enable = true;
+
 
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = ["multi-user.target"];

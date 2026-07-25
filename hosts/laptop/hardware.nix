@@ -14,27 +14,23 @@
     "amdgpu.ppfeaturemask=0xffffffff"
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/6fc9f8f7-1604-4571-a298-0fa1c9c559ac";
+    device = "/dev/disk/by-uuid/735f1344-389f-4e34-8d5a-9dce7d0d5931";
     fsType = "ext4";
   };
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/0E48-C054";
-    fsType = "vfat";
-  };
-  fileSystems."/mnt/58111611-84ab-47e2-a26c-78af6584fc0d" = {
-    device = "/dev/disk/by-uuid/58111611-84ab-47e2-a26c-78af6584fc0d";
+    device = "/dev/disk/by-uuid/536400d4-75f3-4d67-aeaf-9165d8abb0ac";
     fsType = "ext4";
-    options = [ "nofail" "x-systemd.device-timeout=5s" ];
   };
-  fileSystems."/mnt/38DE89444402D734" = {
-    device = "/dev/disk/by-uuid/38DE89444402D734";
-    fsType = "ntfs";
-    options = [ "nofail" "x-systemd.device-timeout=5s" ];
+  fileSystems."/boot/efi" = {
+    device = "/dev/disk/by-uuid/BCA2-4C4C";
+    fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" ];
   };
 
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -45,7 +41,6 @@
     enable32Bit = true;
     extraPackages = with pkgs; [ libvdpau-va-gl libva-vdpau-driver ];
   };
-  chaotic.mesa-git.enable = true;
 
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = ["multi-user.target"];

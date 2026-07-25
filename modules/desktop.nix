@@ -1,6 +1,10 @@
 { config, pkgs, inputs, vars, lib, ... }:
 
 {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
   options.my.hyprland.monitors = lib.mkOption {
     type = lib.types.lines;
     default = "";
@@ -30,8 +34,6 @@
 
     fonts.packages = with pkgs; [ rubik nerd-fonts.ubuntu nerd-fonts.jetbrains-mono ];
 
-    imports = [ inputs.home-manager.nixosModules.home-manager ];
-
     home-manager.useGlobalPkgs = true;
     home-manager.useUserPackages = true;
     home-manager.backupFileExtension = "backup";
@@ -60,7 +62,7 @@
       home.file.".config/caelestia/hypr-user.lua".text = ''
         hl.bind("SUPER + Return", hl.dsp.exec_cmd("kitty"))
         hl.config({ input = { kb_layout = "${vars.keyboardLayout}" } })
-        
+
         -- NIX INJECTS NATIVE LUA HERE
         ${config.my.hyprland.monitors}
 
