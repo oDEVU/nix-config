@@ -5,13 +5,13 @@
     ./hardware.nix
     ../../modules/user.nix
     ../../modules/desktop.nix
-    ../../modules/gaming.nix
     ../../modules/apps/core.nix
     ../../modules/apps/utils.nix
     ../../modules/apps/creative.nix
     ../../modules/apps/social.nix
     ../../modules/apps/dev/tools.nix
     ../../modules/apps/dev/c-cpp.nix
+    ../../modules/aps/gaming/valve.nix
   ];
 
   networking.hostName = "nixoslaptop";
