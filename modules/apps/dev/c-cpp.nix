@@ -1,4 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, self, ... }:
 {
-  environment.systemPackages = with pkgs; [ ninja cmake clang ];
+  environment.shellAliases = {
+    devshell-cpp = "nix develop ${self}#cpp --no-write-lock-file";
+  };
 }
