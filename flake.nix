@@ -27,10 +27,10 @@
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
     in {
       devShells."x86_64-linux".cpp = let
-        devTools = with pkgs; [ clang cmake ninja pkg-config ];
+        devTools = with pkgs; [ clang cmake ninja pkg-config meson conan ];
         devLibs = with pkgs; [
-          vulkan-headers vulkan-loader libGL sdl3 wayland
-          libx11 libxrandr libxinerama libxcursor libxi
+          vulkan-headers vulkan-loader vulkan-validation-layers libGL sdl3 wayland wayland-protocols
+          libx11 libxrandr libxinerama libxcursor libxi libXScrnSaver libXtst libxcb libxkbcommon
           stdenv.cc.cc.lib
           boost
         ];
