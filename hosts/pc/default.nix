@@ -5,6 +5,7 @@
     ./hardware.nix
     ../../modules/user.nix
     ../../modules/desktop.nix
+    ../../modules/apps/ricing/wallpaper-engine.nix
     ../../modules/apps/core.nix
     ../../modules/apps/utils.nix
     ../../modules/apps/creative.nix
@@ -14,6 +15,11 @@
     ../../modules/apps/dev/android.nix
     ../../modules/apps/gaming/valve.nix
     ../../modules/apps/gaming/logitech.nix
+    ../../modules/apps/gaming/vr.nix
+    ../../modules/apps/gaming/heroic.nix
+    ../../modules/apps/gaming/linuxrulez.nix
+    ../../modules/apps/gaming/overlay.nix
+    ../../modules/apps/gaming/minecraft.nix
   ];
 
     my.hyprland.monitors = ''
