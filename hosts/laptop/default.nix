@@ -11,7 +11,7 @@
     ../../modules/apps/social.nix
     ../../modules/apps/dev/tools.nix
     ../../modules/apps/dev/c-cpp.nix
-    ../../modules/aps/gaming/valve.nix
+    ../../modules/apps/gaming/valve.nix
   ];
 
   networking.hostName = "nixoslaptop";
