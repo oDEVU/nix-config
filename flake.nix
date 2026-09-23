@@ -44,7 +44,7 @@
           vulkan-headers vulkan-loader vulkan-validation-layers libGL sdl3 wayland wayland-protocols
           libx11 libxrandr libxinerama libxcursor libxi libXScrnSaver libXtst libxcb libxkbcommon
           stdenv.cc.cc.lib
-          boost
+          boost ncurses
         ];
 
         pkgNames = builtins.concatStringsSep ", " (map (p: p.pname or p.name) devLibs);

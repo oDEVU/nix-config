@@ -21,6 +21,7 @@
     ../../modules/apps/gaming/linuxrulez.nix
     ../../modules/apps/gaming/overlay.nix
     ../../modules/apps/gaming/minecraft.nix
+    ../../modules/apps/wine.nix
   ];
 
     my.hyprland.monitors = ''
@@ -35,4 +36,5 @@
 
   system.stateVersion = vars.systemVersion;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.sandbox = "relaxed";
 }
