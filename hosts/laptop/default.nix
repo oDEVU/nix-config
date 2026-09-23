@@ -4,7 +4,8 @@
   imports = [
     ./hardware.nix
     ../../modules/user.nix
-    ../../modules/desktop.nix
+    ../../modules/desktop
+    ../../modules/apps/media/spotify.nix
     ../../modules/apps/core.nix
     ../../modules/apps/utils.nix
     ../../modules/apps/creative.nix
