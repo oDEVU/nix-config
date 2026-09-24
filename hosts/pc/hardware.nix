@@ -18,6 +18,7 @@
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/6fc9f8f7-1604-4571-a298-0fa1c9c559ac";
