@@ -11,10 +11,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    caelestia-shell = {
-      url = "github:caelestia-dots/shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -24,7 +21,6 @@
     simple-wallpaper-engine = {
       url = "github:Maxnights/simple-linux-wallpaperengine-gui";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
 
     xmcl = {
@@ -35,52 +31,21 @@
 
   outputs = { self, nixpkgs, chaotic, ... }@inputs:
     let
+      system = "x86_64-linux";
       vars = import ./vars.nix;
-      pkgs = nixpkgs.legacyPackages."x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+
+      mkHost = hostDir: extra: nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs vars self; };
+        modules = [ hostDir ] ++ extra;
+      };
     in {
-      devShells."x86_64-linux".cpp = let
-        devTools = with pkgs; [ clang cmake ninja pkg-config meson conan ];
-        devLibs = with pkgs; [
-          vulkan-headers vulkan-loader vulkan-validation-layers libGL sdl3 wayland wayland-protocols
-          libx11 libxrandr libxinerama libxcursor libxi libXScrnSaver libXtst libxcb libxkbcommon
-          stdenv.cc.cc.lib
-          boost ncurses
-        ];
+      devShells.${system}.cpp = import ./modules/apps/dev/devshells/cpp.nix { inherit pkgs; };
 
-        pkgNames = builtins.concatStringsSep ", " (map (p: p.pname or p.name) devLibs);
-      in pkgs.mkShell {
-        packages = devTools ++ devLibs;
-
-        shellHook = ''
-          export LD_LIBRARY_PATH="${pkgs.lib.makeLibraryPath devLibs}:$LD_LIBRARY_PATH"
-
-          cat << 'EOF'
-          -----------------------------------
-          ▄▖      ▄▖▌   ▜ ▜   ▜      ▌   ▌
-          ▌ ▟▖▟▖  ▚ ▛▌█▌▐ ▐   ▐ ▛▌▀▌▛▌█▌▛▌
-          ▙▖▝ ▝   ▄▌▌▌▙▖▐▖▐▖  ▐▖▙▌█▌▙▌▙▖▙▌
-
-          Libs available: ${pkgNames}
-          -----------------------------------
-          EOF
-        '';
-      };
-
-      nixosConfigurations.pc = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs vars self; };
-        modules = [
-          chaotic.nixosModules.default
-          ./hosts/pc/default.nix
-        ];
-      };
-
-      nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs vars self; };
-        modules = [
-          ./hosts/laptop/default.nix
-        ];
+      nixosConfigurations = {
+        pc = mkHost ./hosts/pc [ chaotic.nixosModules.default ];
+        laptop = mkHost ./hosts/laptop [ ];
       };
     };
 }

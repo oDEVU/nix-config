@@ -1,6 +1,8 @@
 { pkgs, vars, ... }:
 
 {
+  imports = [ ./home.nix ];
+
   users.users.${vars.userName} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "render" ];

@@ -4,13 +4,15 @@
   imports = [
     ./hardware.nix
     ../../modules/user.nix
-    ../../modules/desktop.nix
+    ../../modules/desktop
+    ../../modules/apps/media/spotify.nix
     ../../modules/apps/ricing/wallpaper-engine.nix
     ../../modules/apps/core.nix
     ../../modules/apps/utils.nix
     ../../modules/apps/creative.nix
     ../../modules/apps/social.nix
     ../../modules/apps/ai.nix
+    ../../modules/apps/kdeconnect.nix
     ../../modules/apps/dev/tools.nix
     ../../modules/apps/dev/c-cpp.nix
     ../../modules/apps/dev/android.nix
