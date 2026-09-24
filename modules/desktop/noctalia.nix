@@ -21,7 +21,6 @@
 
   my.hyprland.autostart = [
       "noctalia"
-      "simple-wallpaper-engine --background"
     ];
 
   my.hyprland.extraConfig = ''
