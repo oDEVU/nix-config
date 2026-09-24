@@ -12,6 +12,7 @@
     ../../modules/apps/creative.nix
     ../../modules/apps/social.nix
     ../../modules/apps/ai.nix
+    ../../modules/apps/kdeconnect.nix
     ../../modules/apps/dev/tools.nix
     ../../modules/apps/dev/c-cpp.nix
     ../../modules/apps/dev/android.nix

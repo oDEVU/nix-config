@@ -10,6 +10,7 @@
     ../../modules/apps/utils.nix
     ../../modules/apps/creative.nix
     ../../modules/apps/social.nix
+    ../../modules/apps/kdeconnect.nix
     ../../modules/apps/dev/tools.nix
     ../../modules/apps/dev/c-cpp.nix
     ../../modules/apps/gaming/valve.nix

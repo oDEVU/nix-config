@@ -8,6 +8,6 @@
     in {
       enable = true;
       enabledExtensions = with spicePkgs.extensions; [ hidePodcasts fullAppDisplay coverAmbience spicyLyrics shuffle ];
-      theme = spicePkgs.themes.text;
+      theme = spicePkgs.themes.comfy;
     };
 }
