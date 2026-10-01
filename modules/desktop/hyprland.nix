@@ -41,6 +41,7 @@ in {
         general = { gaps_in = 5, gaps_out = 10 },
         input = { kb_layout = "${vars.keyboardLayout}", follow_mouse = 1 },
         misc = { disable_hyprland_logo = true },
+        xwayland = { force_zero_scaling = true },
         decoration = {
           rounding = 20,
           rounding_power = 2,

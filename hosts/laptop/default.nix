@@ -17,6 +17,11 @@
     ../../modules/apps/gaming/valve.nix
   ];
 
+  my.hyprland.monitors = ''
+    hl.monitor({ output = "eDP-1", mode = "preferred", position = "auto", scale = 1.2 })
+  '';
+
+
   networking.hostName = "nixoslaptop";
   time.timeZone = vars.timezone;
   console.keyMap = "${vars.keyboardLayout}2";
