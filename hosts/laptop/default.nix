@@ -14,6 +14,7 @@
     ../../modules/apps/dev/tools.nix
     ../../modules/apps/dev/c-cpp.nix
     ../../modules/apps/dev/java.nix
+    ../../modules/apps/dev/vbox.nix
     ../../modules/apps/gaming/valve.nix
   ];
 
