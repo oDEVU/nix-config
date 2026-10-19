@@ -14,9 +14,12 @@
     ../../modules/apps/ai.nix
     ../../modules/apps/kdeconnect.nix
     ../../modules/apps/android-webcam.nix
+    ../../modules/apps/office.nix
     ../../modules/apps/dev/tools.nix
+    ../../modules/apps/dev/python.nix
     ../../modules/apps/dev/c-cpp.nix
     ../../modules/apps/dev/android.nix
+    ../../modules/apps/dev/godot.nix
     ../../modules/apps/gaming/valve.nix
     ../../modules/apps/gaming/logitech.nix
     ../../modules/apps/gaming/vr.nix
@@ -25,6 +28,7 @@
     ../../modules/apps/gaming/overlay.nix
     ../../modules/apps/gaming/minecraft.nix
     ../../modules/apps/wine.nix
+    ../../modules/apps/oneplus/deeptest.nix
   ];
 
     my.hyprland.monitors = ''
