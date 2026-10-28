@@ -1,4 +1,4 @@
-{ config, lib, pkgs, vars, ... }:
+{ config, lib, pkgs, pkgsUnstable, vars, ... }:
 
 let
   cfg = config.my.hyprland;
@@ -25,6 +25,7 @@ in {
 
   config = {
     programs.hyprland.enable = true;
+    programs.hyprland.package = pkgsUnstable.hyprland;
 
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
@@ -57,6 +58,7 @@ in {
       -- apps
       hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("kitty"))
       hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("dolphin"))
+      hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("sh -c 'mkdir -p \"$HOME/Pictures/Screenshots\" && grim -g \"$(slurp)\" \"$HOME/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png\"'"))
       hl.bind(mainMod .. " + Q", hl.dsp.window.close())
       hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exit())
       hl.bind(mainMod .. " + Slash", hl.dsp.exec_cmd("kitty -e sh -c 'hyprctl binds | less'"))

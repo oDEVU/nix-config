@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgsUnstable, ... }:
 {
-  environment.systemPackages = with pkgs; [ blender obs-studio ];
+  environment.systemPackages = with pkgsUnstable; [ blender obs-studio ];
 }

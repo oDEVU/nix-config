@@ -16,6 +16,8 @@
     ../../modules/apps/dev/java.nix
     ../../modules/apps/dev/vbox.nix
     ../../modules/apps/dev/godot.nix
+    ../../modules/apps/dev/python.nix
+    ../../modules/apps/dev/android.nix
     ../../modules/apps/gaming/valve.nix
   ];
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgsUnstable, ... }:
 {
-  environment.systemPackages = with pkgs; [ heroic ];
+  environment.systemPackages = with pkgsUnstable; [ heroic ];
 }

@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 
 {
-  environment.systemPackages = with pkgs.kdePackages; [
+  environment.systemPackages = with pkgsUnstable.kdePackages; [
     dolphin-plugins
     kio-admin
     kservice

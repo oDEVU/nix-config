@@ -1,6 +1,6 @@
-{ pkgs, vars, ... }:
+{ pkgsUnstable, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgsUnstable; [
     libreoffice-qt6-fresh
     hunspell
     hunspellDicts.en_US

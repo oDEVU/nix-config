@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  security.pam.services.ly.enableGnomeKeyring = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   my.hyprland.autostart = [
     "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"

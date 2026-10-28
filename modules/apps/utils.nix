@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 {
   environment.systemPackages = with pkgs; [
-    gnome-disk-utility distrobox kdePackages.ark kdePackages.gwenview kdePackages.dolphin kdePackages.kio-extras wl-clipboard lact cosmic-settings cosmic-settings-daemon qbittorrent p7zip unzip unrar
+    pkgsUnstable.gnome-disk-utility distrobox
+    pkgsUnstable.kdePackages.ark pkgsUnstable.kdePackages.gwenview
+    pkgsUnstable.kdePackages.dolphin kdePackages.kio-extras
+    wl-clipboard grim slurp tree lact cosmic-settings cosmic-settings-daemon
+    pkgsUnstable.qbittorrent p7zip unzip unrar
   ];
 }
