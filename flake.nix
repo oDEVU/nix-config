@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
 
@@ -12,6 +13,11 @@
     };
 
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
+
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -29,15 +35,19 @@
     };
   };
 
-  outputs = { self, nixpkgs, chaotic, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, chaotic, ... }@inputs:
     let
       system = "x86_64-linux";
       vars = import ./vars.nix;
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgsUnstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
 
       mkHost = hostDir: extra: nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs vars self; };
+        specialArgs = { inherit inputs vars self pkgsUnstable; };
         modules = [ hostDir ] ++ extra;
       };
     in {

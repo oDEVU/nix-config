@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [ "pnpm-10.29.2" ];
@@ -39,6 +39,23 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kitty git wget htop curl zip p7zip pciutils usbutils killall fastfetch polkit_gnome brave
+    pkgsUnstable.kitty git wget htop curl zip p7zip pciutils usbutils killall fastfetch polkit_gnome playerctl
+    pkgsUnstable.brave
+    (writeShellScriptBin "brave-dev" ''
+      exec ${pkgsUnstable.brave}/bin/brave \
+        --remote-debugging-address=127.0.0.1 \
+        --remote-debugging-port=9222 "$@"
+    '')
+    (makeDesktopItem {
+      name = "brave-dev";
+      desktopName = "Brave Dev";
+      genericName = "Web Browser";
+      comment = "Brave with Capri browser integration enabled";
+      exec = "brave-dev %U";
+      icon = "brave";
+      categories = [ "Network" "WebBrowser" ];
+      terminal = false;
+      startupWMClass = "Brave-browser";
+    })
   ];
 }

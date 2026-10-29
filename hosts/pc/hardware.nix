@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, pkgsUnstable, ... }:
 
 {
   nixpkgs.hostPlatform = "x86_64-linux";
@@ -35,6 +35,9 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+
+#    package = pkgsUnstable.mesa.drivers;
+#    package32 = pkgsUnstable.pkgsi686Linux.mesa.drivers;
     extraPackages = with pkgs; [ libvdpau-va-gl libva-vdpau-driver ];
   };
   chaotic.mesa-git.enable = true;

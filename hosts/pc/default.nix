@@ -15,6 +15,7 @@
     ../../modules/apps/kdeconnect.nix
     ../../modules/apps/android-webcam.nix
     ../../modules/apps/office.nix
+    ../../modules/apps/nix-ld.nix
     ../../modules/apps/dev/tools.nix
     ../../modules/apps/dev/python.nix
     ../../modules/apps/dev/c-cpp.nix
@@ -24,7 +25,6 @@
     ../../modules/apps/gaming/logitech.nix
     ../../modules/apps/gaming/vr.nix
     ../../modules/apps/gaming/heroic.nix
-    ../../modules/apps/gaming/linuxrulez.nix
     ../../modules/apps/gaming/overlay.nix
     ../../modules/apps/gaming/minecraft.nix
     ../../modules/apps/wine.nix

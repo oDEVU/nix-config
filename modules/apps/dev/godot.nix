@@ -1,5 +1,4 @@
-{ pkgs, ... }:
+{ pkgsUnstable, ... }:
 {
-
-  environment.systemPackages = with pkgs; [ godot_4 ];
+  environment.systemPackages = with pkgsUnstable; [ godot_4 ];
 }
