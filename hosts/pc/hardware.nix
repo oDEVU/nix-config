@@ -12,7 +12,6 @@
     "nouveau.modeset=0"
     "rootdelay=15"
     "amdgpu.ppfeaturemask=0xffffffff"
-    "clearcpuid=514"
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos;
