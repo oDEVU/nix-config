@@ -10,13 +10,18 @@
     ../../modules/apps/utils.nix
     ../../modules/apps/creative.nix
     ../../modules/apps/social.nix
+    ../../modules/apps/office.nix
     ../../modules/apps/kdeconnect.nix
     ../../modules/apps/dev/tools.nix
     ../../modules/apps/dev/c-cpp.nix
     ../../modules/apps/dev/java.nix
     ../../modules/apps/dev/vbox.nix
     ../../modules/apps/dev/godot.nix
+    ../../modules/apps/dev/python.nix
+    ../../modules/apps/dev/android.nix
     ../../modules/apps/gaming/valve.nix
+    ../../modules/apps/politechnika-vpn.nix
+    ../../modules/apps/ai.nix
   ];
 
   my.hyprland.monitors = ''
