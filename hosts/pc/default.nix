@@ -5,6 +5,7 @@
     ./hardware.nix
     ../../modules/user.nix
     ../../modules/desktop
+    ../../modules/desktop/liquidass.nix
     ../../modules/apps/media/spotify.nix
     ../../modules/apps/ricing/wallpaper-engine.nix
     ../../modules/apps/core.nix
@@ -21,6 +22,7 @@
     ../../modules/apps/dev/c-cpp.nix
     ../../modules/apps/dev/android.nix
     ../../modules/apps/dev/godot.nix
+    ../../modules/apps/dev/dotnet.nix
     ../../modules/apps/gaming/valve.nix
     ../../modules/apps/gaming/logitech.nix
     ../../modules/apps/gaming/vr.nix
@@ -29,6 +31,7 @@
     ../../modules/apps/gaming/minecraft.nix
     ../../modules/apps/wine.nix
     ../../modules/apps/oneplus/deeptest.nix
+    ../../modules/apps/tailscale.nix
   ];
 
     my.hyprland.monitors = ''

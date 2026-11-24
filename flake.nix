@@ -12,6 +12,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprglass = {
+      url = "github:hyprnux/hyprglass/hyprland-0.56";
+      flake = false;
+    };
+
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
     noctalia-greeter = {

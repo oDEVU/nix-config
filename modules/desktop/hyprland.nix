@@ -65,6 +65,7 @@ in {
 
       -- windows
       hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
+      hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 
       hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.focus({ direction = "l" }))
       hl.bind(mainMod .. " + SHIFT + right", hl.dsp.focus({ direction = "r" }))

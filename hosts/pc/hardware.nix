@@ -12,6 +12,7 @@
     "nouveau.modeset=0"
     "rootdelay=15"
     "amdgpu.ppfeaturemask=0xffffffff"
+    "amdgpu.vm_update_mode=3"
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_cachyos;

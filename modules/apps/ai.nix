@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     lmstudio
-    rocminfo
+    rocmPackages.rocminfo
     rocmPackages.rocm-smi
   ];
 
